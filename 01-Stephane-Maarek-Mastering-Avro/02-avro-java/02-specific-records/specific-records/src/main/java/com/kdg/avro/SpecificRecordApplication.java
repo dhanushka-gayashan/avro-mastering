@@ -65,9 +65,9 @@ public class SpecificRecordApplication {
         Customer customer = createCustomer("Mark", "Simpson", 30, 180f, 90f, true);
 
         // Write to a Avro File
-        writeAvroFile(customer, "customer-generic.avro");
+        writeAvroFile(customer, "customer-specific.avro");
 
         // Read from a Avro File
-        readAvroFile("customer-generic.avro");
+        readAvroFile("customer-specific.avro");
     }
 }
