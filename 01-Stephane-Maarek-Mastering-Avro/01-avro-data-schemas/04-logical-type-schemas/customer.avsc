@@ -1,0 +1,32 @@
+[
+    {
+        "type": "record",
+        "namespace": "com.kdg",
+        "name": "CustomerAddress",
+        "doc": "Avro Schema for Customer Address",
+        "fields": [
+            {"name": "address", "type": "string"},
+            {"name": "city", "type": "string"},
+            {"name": "post_code", "type": ["int", "string"]},
+            {"name": "type", "type": "enum", "symbols": ["PO BOX", "RESIDENTIAL", "ENTERPRISE"]}
+        ]
+    },
+    {
+        "type": "record",
+        "namespace": "com.kdg",
+        "name": "Customer",
+        "doc": "Avro Schema for Customer",
+        "fields": [
+            {"name": "first_name", "type": "string", "doc": "first name of the customer"},
+            {"name": "middle_name", "type": ["null", "string"], "default": null, "doc": "middle name of the customer"},
+            {"name": "last_name", "type": "string", "doc": "last name of the customer"},
+            {"name": "age", "type": "int", "doc": "age of the customer"},
+            {"name": "height", "type": "float", "doc": "height of the customer in cm"},
+            {"name": "weight", "type": "float", "doc": "weight of the customer in kg"},
+            {"name": "customer_address", "type": "com.kdg.CustomerAddress", "doc": "address of the customer"},
+            {"name": "customer_emails", "type": "array", "items": "string", "default": [], "doc": "emails of the customer"},   
+            {"name": "automated_email", "type": "boolean", "default": true, "doc": "true if customer ok to recived marketing emails"},
+            { "name": "signup_ts", "type": "long", "logicalType": "timestamp-millis", "doc": "EPOCH millis Timestamp at which the user signed up "}
+        ]
+    }
+]
